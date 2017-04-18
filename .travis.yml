@@ -8,14 +8,12 @@ python:
   - '3.6'
   - nightly
 install:
-- pip install coverage==3.7.1 codecov coveralls
+- pip install coverage==3.7.1 codecov coveralls pypandoc
 script:
 - python setup.py test
 - python -m coverage run --source asr_evaluation setup.py test
 after_success:
 - coveralls
-before_deploy:
-- pip install pypandoc
 deploy:
   provider: pypi
   user: benlambert
